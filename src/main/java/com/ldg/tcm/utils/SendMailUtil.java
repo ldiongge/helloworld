@@ -1,0 +1,15 @@
+package com.ldg.tcm.utils;
+
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+
+public class SendMailUtil {
+    public static void sendMail(JavaMailSender mailSender, String subject, String text, String from, String[] to) {
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setSubject(subject);
+        mailMessage.setText(text);
+        mailMessage.setFrom(from);
+        mailMessage.setTo(to);
+        mailSender.send(mailMessage);
+    }
+}
